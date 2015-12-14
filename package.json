@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/rbailoni/api-photos/issues"
   },
-  "homepage": "https://github.com/rbailoni/api-photos#readme"
+  "homepage": "https://github.com/rbailoni/api-photos#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "mongoose": "^4.3.1"
+  }
 }
