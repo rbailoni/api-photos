@@ -1,0 +1,24 @@
+{
+  "name": "api-photos",
+  "version": "1.0.0",
+  "description": "Aplicativo de conclusão do curso de NodeJS. O aplicativo tem um crud de imagens com a criação de tags e definição de categorias de acordo com o crud de categorias.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rbailoni/api-photos.git"
+  },
+  "keywords": [
+    "nodejs",
+    "images",
+    "categories"
+  ],
+  "author": "Ricardo Bailoni <rbailoni@gmail.com> (http://rbailoni.com.br)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rbailoni/api-photos/issues"
+  },
+  "homepage": "https://github.com/rbailoni/api-photos#readme"
+}
