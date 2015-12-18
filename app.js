@@ -1,9 +1,12 @@
 'use strict';
 
-var express = require('express');
-var app = express();
-var config = require('./config');
-var mongoose = require('mongoose');
+let express = require('express');
+let app = express();
+let routers = require('./routers');
+let config = require('./config');
+let mongoose = require('mongoose');
+
+app.use('/api', routers.api);
 
 let urlDatabase = `mongodb://${config.db.host}/${config.db.name}`;
 
@@ -14,7 +17,7 @@ db.on('error', function () {
 });
 
 db.once('open', function () {
-	app.listen('3000', ()=>console.log('> localhost:3000'));
+	app.listen('3000');
 });
 
-console.log(config.db.name);
+module.exports = app;

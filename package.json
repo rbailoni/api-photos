@@ -4,7 +4,8 @@
   "description": "Aplicativo de conclusão do curso de NodeJS. O aplicativo tem um crud de imagens com a criação de tags e definição de categorias de acordo com o crud de categorias.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon --quiet app.js",
+    "test": "./node_modules/mocha/bin/_mocha test/e2e/*.spec.js"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,15 @@
   },
   "homepage": "https://github.com/rbailoni/api-photos#readme",
   "dependencies": {
+    "body-parser": "^1.14.1",
     "express": "^4.13.3",
-    "mongoose": "^4.3.1"
+    "mongoose": "^4.3.1",
+    "multer": "^1.1.0"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "chai-things": "^0.2.0",
+    "mocha": "^2.3.4",
+    "supertest": "^1.1.0"
   }
 }
