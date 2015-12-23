@@ -5,7 +5,9 @@ let Categories = require('../models').categories;
 module.exports = {
 	list: list,
 	create: create,
-	get: get
+	get: get,
+	update: update,
+	delete: del
 };
 
 function list (req, res) {
@@ -40,7 +42,7 @@ function create (req, res) {
 	let error = function (err) {
 		res
 			.status(400)
-			.json({message: 'erro ao criar usuario'});
+			.json({message: 'erro ao criar categoria'});
 	};
 
 	categorie
@@ -58,10 +60,68 @@ function get (req, res) {
 	let error = function (err) {
 		res
 			.status(400)
-			.json({message: 'erro na busca da categorie'});
+			.json({message: 'erro na busca da categoria'});
 	};
 
 	Categories
 		.findById(req.params.id)
+		.then(success, error);
+}
+
+function update (req, res) {
+	let success = function (categorie) {
+		res
+			.status(200)
+			.json({
+				message:'categoria salva com sucesso',
+				'categorie':categorie
+			});
+	};
+
+	let error = function (err) {
+		res
+			.status(400)
+			.json({message:err.message});
+	};
+
+	let successFind = function (categorie) {
+		if (!req.body.name) {
+			res
+				.status(400)
+				.json({message:'parametro name nao informado'});
+		}else{
+			categorie.name = req.body.name;
+			categorie
+				.save()
+				.then(success, error);
+		}
+	};
+
+	let errorFind = function (err) {
+		res
+			.status(400)
+			.json({message:'id nao encontrado'});
+	};
+
+	Categories
+		.findById(req.params.id)
+		.then(successFind, errorFind);
+}
+
+function del (req, res) {
+	let success = function () {
+		res
+			.status(200)
+			.json({message:'categoria removida com sucesso'});
+	};
+
+	let error = function (err) {
+		res
+			.status(400)
+			.json({message:err.message});
+	};
+
+	Categories
+		.findByIdAndRemove(req.params.id)
 		.then(success, error);
 }

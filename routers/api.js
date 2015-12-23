@@ -17,6 +17,8 @@ router
 
 router
 	.route('/categories/:id')
-	.get(controllers.categories.get);
+	.get(controllers.categories.get)
+	.put(controllers.categories.update)
+	.delete(controllers.categories.delete);
 
 module.exports = router;

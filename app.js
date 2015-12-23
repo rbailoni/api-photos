@@ -17,7 +17,7 @@ db.on('error', function () {
 });
 
 db.once('open', function () {
-	app.listen('3000');
+	app.listen('3000', ()=>console.log('> localhost:3000'));
 });
 
 module.exports = app;
